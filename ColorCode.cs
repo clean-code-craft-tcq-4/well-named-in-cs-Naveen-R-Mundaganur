@@ -11,7 +11,7 @@ namespace TelCo.ColorCoder
         /// </summary>
         /// <param name="pairNumber">Pair number of the color to be fetched</param>
         /// <returns></returns>
-        internal static ColorPairs GetColorFromPairNumber(int pairNumber, ColorPairs objColorPairs)
+        internal static ColorPair GetColorFromPairNumber(int pairNumber, ColorPair objColorPairs)
         {
             // The function supports only 1 based index. Pair numbers valid are from 1 to 25
             int minorSize = objColorPairs.colorMapMajor.Length;
@@ -28,7 +28,7 @@ namespace TelCo.ColorCoder
             int minorIndex = zeroBasedPairNumber % minorSize;
 
             // Construct the return val from the arrays
-            ColorPairs pair = new ColorPairs
+            ColorPair pair = new ColorPair
             {
                 majorColor = objColorPairs.colorMapMajor[majorIndex],
                 minorColor = objColorPairs.colorMapMinor[minorIndex]
@@ -43,7 +43,7 @@ namespace TelCo.ColorCoder
         /// </summary>
         /// <param name="colorinfo">Color pair with major and minor color</param>
         /// <returns></returns>
-        internal static int GetPairNumberFromColor(ColorPairs colorinfo, ColorPairs objColorPairs)
+        internal static int GetPairNumberFromColor(ColorPair colorinfo, ColorPair objColorPairs)
         {
             // Find the major color in the array and get the index
             int majorIndex = -1;
