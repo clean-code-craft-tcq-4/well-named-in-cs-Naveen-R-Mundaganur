@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using TelCo.ColorCoder.ColorPair;
-using TelCo.ColorCoder.ColorData;
-using TelCo.ColorCoder.ColorCode;
 
 namespace TelCo.ColorCoder
 {
@@ -27,15 +24,15 @@ namespace TelCo.ColorCoder
             Color[] majorColorGroup = new Color[] { Color.White, Color.Red, Color.Black, Color.Yellow, Color.Violet };
             Color[] minorColorGroup = new Color[] { Color.Blue, Color.Orange, Color.Green, Color.Brown, Color.SlateGray };    
             
-            ColorPair objColorPairs = new ColorPair(majorColorGroup, minorColorGroup);
+            TelCo.ColorCoder.ColorPair objColorPairs = new TelCo.ColorCoder.ColorPair(majorColorGroup, minorColorGroup);
             int pairNumber=4;
-            ColorPair color_pair_result = ColorCode.GetColorFromPairNumber(pairNumber, objColorPairs);
+            TelCo.ColorCoder.ColorPair color_pair_result = TelCo.ColorCoder.ColorCode.GetColorFromPairNumber(pairNumber, objColorPairs);
             Console.WriteLine("[In]Pair Number: {0},[Out] Colors: {1}\n", pairNumber, color_pair_result);
             Debug.Assert(color_pair_result.majorColor == Color.White);
             Debug.Assert(color_pair_result.minorColor == Color.Brown);
             
-            ColorPair colors_pair_data = new ColorPair() { majorColor = Color.Yellow, minorColor = Color.Green };
-            pairNumber = ColorData.GetPairNumberFromColor(colors_pair_data, objColorPairs);
+            TelCo.ColorCoder.ColorPair colors_pair_data = new TelCo.ColorCoder.ColorPair() { majorColor = Color.Yellow, minorColor = Color.Green };
+            pairNumber = TelCo.ColorCoder.ColorData.GetPairNumberFromColor(colors_pair_data, objColorPairs);
             Console.WriteLine("[In]Colors: {0}, [Out] PairNumber: {1}\n", colors_pair_data, pairNumber);
             Debug.Assert(pairNumber == 18);
         }
